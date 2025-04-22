@@ -17,8 +17,17 @@ COPY . .
 # Instala dependências PHP
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
+# Cria banco SQLite
+RUN mkdir -p database && touch database/database.sqlite
+
+# Permissões para storage e cache
+RUN chmod -R 775 storage bootstrap/cache database
+
 # Gera key do Laravel
 RUN php artisan key:generate
+
+# Gera tabela de sessões e roda migrations
+RUN php artisan session:table && php artisan migrate --force
 
 # Expõe porta
 EXPOSE 9000
