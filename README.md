@@ -78,3 +78,6 @@ Certifique-se de que o arquivo existe e tenha permissão de escrita. As migratio
 - resources/views/ – Views com layout básico + sortable
 - routes/web.php – Rotas do sistema
 - Dockerfile – Build para container Laravel com SQLite
+
+# 📝 Licença
+Este projeto está sob a licença MIT.
